@@ -1,0 +1,15 @@
+{
+  "name": "fast-purge",
+  "version": "0.0.1",
+  "description": "Akamai Fast Purge plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test.js"
+  },
+  "author": "Helcon Mabesa",
+  "dependencies": {
+    "cli-helper": "^0.3.0",
+    "edgegrid": "^3.0.6",
+    "js-yaml": "^3.12.2"
+  }
+}
