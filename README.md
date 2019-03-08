@@ -5,19 +5,21 @@ Node Plugin for Akamai Fast Purge
 ## Usage
 
 ```js
-const FastPurge = require('akamai-fast-purge');
-const Purge = new FastPurge([ OAUTH_PROPERTIES ]);
+const FastPurge = require('fast-purge');
+
+const Purge = new FastPurge({
+    client_token: 'xxxxx',
+    client_secret: 'xxxxx',
+    access_token: 'xxxxx',
+    host: 'xxxxx'
+});
 
 Purge.submit([ PURGE_OBJECTS ], [ PURGE_OPTIONS ])
     .then([ COMPLETE_HANDLER ])
     .catch([ ERROR_HANDLER ]);
 ```
 
-### PURGE_OBJECTS
-
-(Array) Purge objects are the dataset of what `url`, `cpcode`, or `tag` to invalidate or delete.
-
-### OAUTH_PROPERTIES
+### OAUTH PROPERTIES
 
 For these values, please see **[Akamai documentation](https://developer.akamai.com/api/getting-started#addcredentialtoedgercfile)**.
 
@@ -28,6 +30,9 @@ For these values, please see **[Akamai documentation](https://developer.akamai.c
 | **`access_token`** | `access_token` in Akamai documentation |
 | **`host`** | `host` in Akamai documentation |
 
+### PURGE_OBJECTS
+
+(Array) Purge objects are the dataset of what `url`, `cpcode`, or `tag` to invalidate or delete.
 
 ### PURGE_OPTIONS
 

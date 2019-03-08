@@ -1,6 +1,6 @@
 {
   "name": "fast-purge",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Akamai Fast Purge plugin",
   "main": "index.js",
   "scripts": {
