@@ -7,16 +7,12 @@ Node Plugin for Akamai Fast Purge
 ```js
 const FastPurge = require('fast-purge');
 
-const Purge = new FastPurge({
+const Purge = FastPurge.create({
     client_token: 'xxxxx',
     client_secret: 'xxxxx',
     access_token: 'xxxxx',
     host: 'xxxxx'
 });
-
-Purge.submit([ PURGE_OBJECTS ], [ PURGE_OPTIONS ])
-    .then([ COMPLETE_HANDLER ])
-    .catch([ ERROR_HANDLER ]);
 ```
 
 ### OAUTH PROPERTIES
@@ -30,11 +26,23 @@ For these values, please see **[Akamai documentation](https://developer.akamai.c
 | **`access_token`** | `access_token` in Akamai documentation |
 | **`host`** | `host` in Akamai documentation |
 
-### PURGE_OBJECTS
+## Methods
 
-(Array) Purge objects are the dataset of what `url`, `cpcode`, or `tag` to invalidate or delete.
+### `.submit()`
 
-### PURGE_OPTIONS
+Submit a cache purge to Akamai.
+
+```js
+Purge.submit([ PURGE_OBJECTS ], [ PURGE_OPTIONS ])
+    .then([ COMPLETE_HANDLER ])
+    .catch([ ERROR_HANDLER ]);
+```
+
+#### PURGE_OBJECTS
+
+(**`Array`**) Collection of content objects -- `url`, `cpcode`, or `tag` -- to **invalidate** or **delete**.
+
+#### PURGE_OPTIONS
 
 | Property | Values | Description |
 |:---------|:-------|:------------|
