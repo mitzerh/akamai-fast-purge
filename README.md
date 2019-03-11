@@ -1,6 +1,6 @@
 # Akamai Fast Purge Utility
 
-Node Plugin for Akamai Fast Purge
+Node Plugin for using Akamai Fast Purge via [EdgeGrid](https://www.npmjs.com/package/edgegrid)
 
 ## Usage
 
