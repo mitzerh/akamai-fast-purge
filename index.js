@@ -15,9 +15,9 @@ class App {
         };
 
         let allow = true;
+        let required = ['client_token', 'client_secret', 'access_token', 'host'];
 
         if (props) {
-            let required = ['client_token', 'client_secret', 'access_token', 'host'];
             for (let i = 0, len = required.length; i < len; i++) {
                 if (!props[required[i]]) {
                     allow = false;
@@ -32,11 +32,12 @@ class App {
         if (allow) {
 
             try {
+                let host = props[required[3]];
                 const EG = new EdgeGrid(
-                    props.client_token,
-                    props.client_secret,
-                    props.access_token,
-                    `https://${props.host}`
+                    props[required[0]], // client_token
+                    props[required[1]], // client_secret
+                    props[required[2]], // access_token
+                    `https://${host}` // host
                 );
                 this[PRIVATE_DATA].EG = EG;
                 this[PRIVATE_DATA].props = props;
@@ -64,8 +65,25 @@ class App {
             objects = (Array.isArray(objects) && objects.length > 0) ? objects : null;
             opts = opts || {};
 
-            let operation = (!opts.operation) ? 'invalidate' : (['invalidate', 'delete'].indexOf(opts.operation) > -1) ? opts.operation : null;
-            let type = (!opts.type) ? 'url' : (['url', 'cpcode', 'tag'].indexOf(opts.type) > -1) ? opts.type : null;
+            let operation = ((val) => {
+                let allowed = ['invalidate', 'delete'];
+                let res = allowed[0]; // default
+                if (val) {
+                    // null if not allowed to let user know
+                    res = (allowed.indexOf(val) > -1) ? val : null;
+                }
+                return res;
+            })(opts.operation);
+
+            let type = ((val) => {
+                let allowed = ['url', 'cpcode', 'tag'];
+                let res = allowed[0]; // default
+                if (val) {
+                    // null if not allowed to let user know
+                    res = (allowed.indexOf(val) > -1) ? val : null;
+                }
+            })(opts.type);
+
             let network = (opts.network === 'staging') ? 'staging' : 'production';
 
             if (!type || !operation) {
