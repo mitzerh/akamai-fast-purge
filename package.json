@@ -1,12 +1,13 @@
 {
   "name": "fast-purge",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Akamai Fast Purge plugin",
   "main": "index.js",
   "scripts": {
     "test": "node ./test.js"
   },
   "author": "Helcon Mabesa",
+  "license": "MIT",
   "dependencies": {
     "edgegrid": "^3.0.6"
   },
