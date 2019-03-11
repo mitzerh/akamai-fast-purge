@@ -82,6 +82,7 @@ class App {
                     // null if not allowed to let user know
                     res = (allowed.indexOf(val) > -1) ? val : null;
                 }
+                return res;
             })(opts.type);
 
             let network = (opts.network === 'staging') ? 'staging' : 'production';
