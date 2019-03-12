@@ -6,8 +6,24 @@
   "scripts": {
     "test": "node ./test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitzerh/akamai-fast-purge.git"
+  },
+  "keywords": [
+    "akamai",
+    "edge",
+    "purge",
+    "fast purge",
+    "ccu",
+    "plugin"
+  ],
   "author": "Helcon Mabesa",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mitzerh/akamai-fast-purge/issues"
+  },
+  "homepage": "https://github.com/mitzerh/akamai-fast-purge#readme",
   "dependencies": {
     "edgegrid": "^3.0.6"
   },
